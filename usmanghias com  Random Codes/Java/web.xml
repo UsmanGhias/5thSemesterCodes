@@ -1,10 +1,12 @@
-<servlet>
-    <servlet-name>MyServlet</servlet-name>
-    <servlet-class>com.example.MyServlet</servlet-class>
-</servlet>
-
-<servlet-mapping>
-        <servlet-name>MyServlet</servlet-name>
+<web-app>
+    <servlet>
+        <servlet-name>HelloWorld</servlet-name>
+        <servlet-class>HelloWorldServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloWorld</servlet-name>
         <url-pattern>/hello</url-pattern>
-</servlet-mapping>
+    </servlet-mapping>
+</web-app>
+
 //These are only example code and not fully implemented

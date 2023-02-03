@@ -1,0 +1,28 @@
+#Knapsack problem using Recursive Algorithms
+def knapsack(items, n, W):
+    # Base case: if no items or knapsack is full, return 0
+    if n == 0 or W == 0:
+        return 0
+
+    # If the current item is more than the knapsack weight, it cannot be included
+    if items[n-1][1] > W:
+        return knapsack(items, n-1, W)
+
+    # Return the maximum value of including or not including the current item
+    return max(knapsack(items, n-1, W), knapsack(items, n-1, W-items[n-1][1]) + items[n-1][0])
+#.................................................................
+#Knapsack problem using Dynamic Programming
+def knapsack_dp(val, wt, W):
+    n = len(val)
+    dp = [[0 for i in range(W+1)] for j in range(n+1)]
+    for i in range(1, n+1):
+        for j in range(1, W+1):
+            if wt[i-1] > j:
+                dp[i][j] = dp[i-1][j]
+            else:
+                dp[i][j] = max(dp[i-1][j], dp[i-1][j-wt[i-1]]+val[i-1])
+    return dp[n][W]
+
+
+
+
